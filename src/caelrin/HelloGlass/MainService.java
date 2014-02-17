@@ -4,7 +4,6 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import android.util.Log;
 import com.google.android.glass.timeline.LiveCard;
 import com.google.android.glass.timeline.TimelineManager;
 
@@ -18,7 +17,7 @@ public class MainService extends Service {
 
     private TimelineManager mTimelineManager;
     private LiveCard mLiveCard;
-    private GestureHolder mCallback;
+    private HelloGlassSurfaceHolderCallback mCallback;
 
     @Override
     public void onCreate() {
@@ -36,7 +35,7 @@ public class MainService extends Service {
         if (mLiveCard == null) {
             mLiveCard = mTimelineManager.createLiveCard(LIVE_CARD_TAG);
 
-            mCallback = new GestureHolder(this);
+            mCallback = new HelloGlassSurfaceHolderCallback(this);
             mLiveCard.setDirectRenderingEnabled(true).getSurfaceHolder().addCallback(mCallback);
 
             Intent menuIntent = new Intent(this, MenuActivity.class);

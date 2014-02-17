@@ -2,39 +2,27 @@ package caelrin.HelloGlass;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.View;
 
-/**
- * Created by Caelrin on 1/25/14.
- */
-public class GestureHolder implements SurfaceHolder.Callback {
-
-    private static final String TAG = "Gesture Holder";
-    private final GesturesView gesturesView;
+public class HelloGlassSurfaceHolderCallback implements SurfaceHolder.Callback {
+    private final HelloView helloView;
     private SurfaceHolder mHolder;
 
-    public GestureHolder(Context context) {
-        gesturesView = new GesturesView(context);
-        gesturesView.setListener(new GesturesView.GesturesListener() {
-
+    public HelloGlassSurfaceHolderCallback(Context context) {
+        helloView = new HelloView(context);
+        helloView.setListener(new DisplayViewCallback() {
             @Override
             public void onTick(long millisUntilFinish) {
-                draw(gesturesView);
-            }
-
-            @Override
-            public void onFinish() {
+                draw(helloView);
             }
         });
-
     }
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         mHolder = holder;
-        gesturesView.start();
+        helloView.start();
     }
 
     @Override
@@ -42,9 +30,9 @@ public class GestureHolder implements SurfaceHolder.Callback {
         int measuredWidth = View.MeasureSpec.makeMeasureSpec(width, View.MeasureSpec.EXACTLY);
         int measuredHeight = View.MeasureSpec.makeMeasureSpec(height, View.MeasureSpec.EXACTLY);
 
-        gesturesView.measure(measuredWidth, measuredHeight);
-        gesturesView.layout(
-                0, 0, gesturesView.getMeasuredWidth(), gesturesView.getMeasuredHeight());
+        helloView.measure(measuredWidth, measuredHeight);
+        helloView.layout(
+                0, 0, helloView.getMeasuredWidth(), helloView.getMeasuredHeight());
     }
 
     @Override
