@@ -7,9 +7,6 @@ import android.view.LayoutInflater;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-/**
- * Created by Caelrin on 1/26/14.
- */
 public class HelloView extends FrameLayout {
     private static final long DELAY_MILLIS = 41;
     private final TextView helloView;

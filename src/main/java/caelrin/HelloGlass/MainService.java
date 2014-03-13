@@ -7,13 +7,9 @@ import android.os.IBinder;
 import com.google.android.glass.timeline.LiveCard;
 import com.google.android.glass.timeline.TimelineManager;
 
-/**
- * Created by agibson on 1/11/14.
- */
 public class MainService extends Service {
 
-    private static final String TAG = "GesturesTag";
-    private static final String LIVE_CARD_TAG = "gestures";
+    private static final String LIVE_CARD_TAG = "helloGlass";
 
     private TimelineManager mTimelineManager;
     private LiveCard mLiveCard;
@@ -56,5 +52,9 @@ public class MainService extends Service {
             mLiveCard = null;
         }
         super.onDestroy();
+    }
+
+    public TimelineManager getTimelineManager() {
+        return mTimelineManager;
     }
 }

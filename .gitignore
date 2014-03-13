@@ -19,6 +19,7 @@ local.properties
 gen/
 out/
 *.iml
+target/
 
 # External tool builders
 .externalToolBuilders/

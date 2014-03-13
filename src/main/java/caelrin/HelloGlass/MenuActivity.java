@@ -23,9 +23,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-/**
- * Activity showing the options menu.
- */
 public class MenuActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +44,6 @@ public class MenuActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection.
         switch (item.getItemId()) {
             case R.id.stop:
                 stopService(new Intent(this, MainService.class));
@@ -59,7 +55,6 @@ public class MenuActivity extends Activity {
 
     @Override
     public void onOptionsMenuClosed(Menu menu) {
-        // Nothing else to do, closing the Activity.
         finish();
     }
 }
